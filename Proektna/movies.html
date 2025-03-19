@@ -3,9 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Button</title>
+    <title>MakFilm - Movie List</title>
+    <link rel="icon" type="image/png" href="/img/Logo/MiniLogo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #1a3d5e;
+            color: #fff;
+        }
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #264a70;
+            padding: 10px 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            cursor: pointer;
+        }
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .login-btn {
+            background: #fff;
+            color: #264a70;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background: #dceefa;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #243c55;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .sort-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sort-container label {
+            font-size: 0.9em;
+            color: #dceefa;
+        }
+        .sort-dropdown select {
+            background: #2e4a67;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+        .sort-dropdown select:hover {
+            background: #3a5775;
+        }
+        .film-section {
+            margin-bottom: 40px;
+        }
+        .films-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .film {
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            background: #2e4a67;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+        .film:hover {
+            transform: scale(1.1);
+        }
+        .film img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+        }
+        .film p {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #dceefa;
+        }
+        .site-footer {
+            text-align: center;
+            background: #264a70;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="window.location.href='login.html'">Go to Login</button>
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/Logo/GolemoLogo.png" alt="MakFilm">
+            </a>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/movies.html">Movies</a>
+            <a href="/tvshows.html">TV Shows</a>
+            <a href="https://www.imdb.com/chart/top/" target="_blank">Top IMDB &#8599;</a>
+        </nav>
+        <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+    </header>
+
+    <div class="container">
+        <h2>
+            Movies
+            <div class="sort-container">
+                <label for="sort-by">Sort by:</label>
+                <div class="sort-dropdown">
+                    <select id="sort-by" onchange="sortMovies(this.value)">
+                        <option value="a-z">Alphabetical A-Z</option>
+                        <option value="z-a">Alphabetical Z-A</option>
+                        <option value="date-asc">Release Date ↑</option>
+                        <option value="date-desc">Release Date ↓</option>
+                        <option value="rating-asc">Rating ↑</option>
+                        <option value="rating-desc">Rating ↓</option>
+                    </select>
+                </div>
+            </div>
+        </h2>
+        <div class="film-section">
+            <div class="films-grid" id="movies-grid">
+                <!-- Movie 1 -->
+                <div class="film" data-title="Movie A" data-date="2023-01-15" data-rating="8.5">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie A">
+                    <p>Movie A</p>
+                </div>
+                <!-- Movie 2 -->
+                <div class="film" data-title="Movie B" data-date="2022-05-20" data-rating="7.9">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie B">
+                    <p>Movie B</p>
+                </div>
+                <!-- Movie 3 -->
+                <div class="film" data-title="Movie C" data-date="2021-12-10" data-rating="9.1">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie C">
+                    <p>Movie C</p>
+                </div>
+                <!-- Movie 4 -->
+                <div class="film" data-title="Movie D" data-date="2023-03-25" data-rating="8.0">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie D">
+                    <p>Movie D</p>
+                </div>
+                <!-- Movie 5 -->
+                <div class="film" data-title="Movie E" data-date="2020-07-30" data-rating="7.5">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie E">
+                    <p>Movie E</p>
+                </div>
+                <!-- Movie 6 -->
+                <div class="film" data-title="Movie F" data-date="2022-11-15" data-rating="8.7">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie F">
+                    <p>Movie F</p>
+                </div>
+                <!-- Movie 7 -->
+                <div class="film" data-title="Movie G" data-date="2021-04-12" data-rating="6.8">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie G">
+                    <p>Movie G</p>
+                </div>
+                <!-- Movie 8 -->
+                <div class="film" data-title="Movie H" data-date="2023-09-05" data-rating="9.3">
+                    <img src="https://via.placeholder.com/200x300" alt="Movie H">
+                    <p>Movie H</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 MakFilm. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function sortMovies(criteria) {
+            const grid = document.getElementById('movies-grid');
+            const movies = Array.from(grid.getElementsByClassName('film'));
+
+            movies.sort((a, b) => {
+                const titleA = a.getAttribute('data-title').toLowerCase();
+                const titleB = b.getAttribute('data-title').toLowerCase();
+                const dateA = new Date(a.getAttribute('data-date'));
+                const dateB = new Date(b.getAttribute('data-date'));
+                const ratingA = parseFloat(a.getAttribute('data-rating'));
+                const ratingB = parseFloat(b.getAttribute('data-rating'));
+
+                switch (criteria) {
+                    case 'a-z':
+                        return titleA.localeCompare(titleB);
+                    case 'z-a':
+                        return titleB.localeCompare(titleA);
+                    case 'date-asc':
+                        return dateA - dateB;
+                    case 'date-desc':
+                        return dateB - dateA;
+                    case 'rating-asc':
+                        return ratingA - ratingB;
+                    case 'rating-desc':
+                        return ratingB - ratingA;
+                    default:
+                        return 0;
+                }
+            });
+
+            // Clear the grid and re-append sorted movies
+            grid.innerHTML = '';
+            movies.forEach(movie => grid.appendChild(movie));
+        }
+    </script>
 </body>
 </html>
