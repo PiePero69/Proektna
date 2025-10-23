@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakFilm</title> 
+    <link rel="icon" type="image/png" href="/img/Logo/MiniLogo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #1a3d5e;
+            color: #fff;
+        }
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #264a70;
+            padding: 10px 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            cursor: pointer;
+        }
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .login-btn {
+            background: #fff;
+            color: #264a70;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background: #dceefa;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #243c55;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            color: #fff;
+        }
+        .film-section {
+            margin-bottom: 40px;
+        }
+        .films-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .film {
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            background: #2e4a67;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+        .film:hover {
+            transform: scale(1.1);
+        }
+        .film img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+        }
+        .film p {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #dceefa;
+        }
+        .site-footer {
+            text-align: center;
+            background: #264a70;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/Logo/GolemoLogo.png" alt="HD Today">
+            </a>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/movies.html">Movies</a>
+            <a href="/tvshows.html">TV Shows</a>
+            <a href="https://www.imdb.com/chart/top/" target="_blank">Top IMDB &#8599;</a>
+
+        </nav>
+        <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+    </header>
+    <div class="container">
+        <div class="film-section">
+            <h2>Trending Films</h2>
+            <div class="films-grid">
+                <div class="film">
+                    <a href="/FilmsHTML/BackInAction.html">
+                        <img src="/img/Trending/Back in Action.jpg" alt="Back in Action">
+                        <p>Back in Action</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/GladiatorII.html">
+                        <img src="/img/Trending/Gladiator II.jpg" alt="Gladiator II">
+                        <p>Gladiator II</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/KravenTheHunter.html">
+                        <img src="/img/Trending/Kraven the Hunter.jpg" alt="Kraven the Hunter">
+                        <p>Kraven the Hunter</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Moana2.html">
+                        <img src="/img/Trending/Moana 2.jpg" alt="Moana 2">
+                        <p>Moana 2</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Mufasa The Lion King.html">
+                        <img src="/img/Trending/Mufasa The Lion King.jpg" alt="Mufasa: The Lion King">
+                        <p>Mufasa: The Lion King</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Nosferatu.html">
+                        <img src="/img/Trending/Nosferatu.jpg" alt="Nosferatu">
+                        <p>Nosferatu</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Sonic the Hedgehog 3.html">
+                        <img src="/img/Trending/Sonic the Hedgehog 3.jpg" alt="Sonic the Hedgehog 3">
+                        <p>Sonic the Hedgehog 3</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/The Gardener.html">
+                        <img src="/img/Trending/The Gardener.jpg" alt="The Gardener">
+                        <p>The Gardener</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Venom The Last Dance.html">
+                        <img src="/img/Trending/Venom The Last Dance.jpg" alt="Venom: The Last Dance">
+                        <p>Venom: The Last Dance</p>
+                    </a>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Wicked.html">
+                        <img src="/img/Trending/Wicked.jpg" alt="Wicked">
+                        <p>Wicked</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="film-section">
+            <h2>Newest Films</h2>
+            <div class="films-grid">
+                <div class="film">
+                    <a href="/FilmsHTML/9-11 The Day the World Stood Still.html">
+                        <img src="/img/New/9-11 The Day the World Stood Still.jpg" alt="9/11 The Day the World Stood Still">
+                    </a>
+                    <p>9/11 The Day the World Stood Still</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Boonie Bears Time Twist.html">
+                        <img src="/img/New/Boonie Bears Time Twist.jpg" alt="Boonie Bears: Time Twist">
+                    </a>
+                    <p>Boonie Bears: Time Twist</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Empty Nets.html">
+                        <img src="/img/New/Empty Nets.jpg" alt="Empty Nets">
+                    </a>
+                    <p>Empty Nets</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Ice Maiden.html">
+                        <img src="/img/New/Ice Maiden.jpg" alt="Ice Maiden">
+                    </a>
+                    <p>Ice Maiden</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Little Emma.html">
+                        <img src="/img/New/Little Emma.jpg" alt="Little Emma">
+                    </a>
+                    <p>Little Emma</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Peter Pan's Neverland Nightmare.html">
+                        <img src="/img/New/Peter Pan's Neverland Nightmare.jpg" alt="Peter Pan's Neverland Nightmare">
+                    </a>
+                    <p>Peter Pan's Neverland Nightmare</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/The Magician's Raincoat.html">
+                        <img src="/img/New/The Magician's Raincoat.jpg" alt="The Magician's Raincoat">
+                    </a>
+                    <p>The Magician's Raincoat</p>
+                </div>
+                <div class="film">
+                    <a href="#">
+                        <img src="/img/New/Wolf Man.jpg" alt="Wolf Man">
+                    </a>
+                    <p>Wolf Man</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Vindication Swim.html">
+                        <img src="/img/New/Vindication Swim.jpg" alt="Vindication Swim">
+                    </a>
+                    <p>Vindication Swim</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/The Undertaker.html">
+                        <img src="/img/New/The Undertaker.jpg" alt="The Undertaker">
+                    </a>
+                    <p>The Undertaker</p>
+                </div>
+            </div>
+        </div>
+        <div class="film-section">
+            <h2>TV Shows</h2>
+            <div class="films-grid">
+                <div class="film">
+                    <a href="/FilmsHTML/Ishura.html">
+                        <img src="/img/TvShows/Ishura.jpg" alt="Ishura">
+                    </a>
+                    <p>Ishura</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Solo Leveling.html">
+                        <img src="/img/TvShows/Solo Leveling.jpg" alt="Solo Leveling">
+                    </a>
+                    <p>Solo Leveling</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Study Group.html">
+                        <img src="/img/TvShows/Study Group.jpg" alt="Study Group">
+                    </a>
+                    <p>Study Group</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/The Left Wing Gang.html">
+                        <img src="/img/TvShows/The Left Wing Gang.jpg" alt="The Left Wing Gang">
+                    </a>
+                    <p>The Left Wing Gang</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Whiskey on the Rocks.html">
+                        <img src="/img/TvShows/Whiskey on the Rocks.jpg" alt="Whiskey on the Rocks">
+                    </a>
+                    <p>Whiskey on the Rocks</p>
+                </div>
+            </div>
+        </div>
+        <div class="film-section">
+            <h2>Soon Releases</h2>
+            <div class="films-grid">
+                <div class="film">
+                    <a href="/FilmsHTML/In The Name of the Son.html">
+                        <img src="/img/Soon/In The Name of the Son.jpg" alt="In The Name of the Son">
+                    </a>
+                    <p>In The Name of the Son</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Parole.html">
+                        <img src="/img/Soon/Parole.jpg" alt="Parole">
+                    </a>
+                    <p>Parole</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Project Icon The UK’s Next Music Star.html">
+                        <img src="/img/Soon/Project Icon The UK’s Next Music Star.jpg" alt="Project Icon: The UK’s Next Music Star">
+                    </a>
+                    <p>Project Icon: The UK’s Next Music Star</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Rap Trap Hip-Hop on Trial.html">
+                        <img src="/img/Soon/Rap Trap Hip-Hop on Trial.jpg" alt="Rap Trap: Hip-Hop on Trial">
+                    </a>
+                    <p>Rap Trap: Hip-Hop on Trial</p>
+                </div>
+                <div class="film">
+                    <a href="/FilmsHTML/Vanished The Hunt For Britain's Missing People.html">
+                        <img src="/img/Soon/Vanished The Hunt For Britain's Missing People.jpg" alt="Vanished: The Hunt For Britain's Missing People">
+                    </a>
+                    <p>Vanished: The Hunt For Britain's Missing People</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2025 MakFilm. All rights reserved.</p>
+    </footer>
+</body>
+</html>

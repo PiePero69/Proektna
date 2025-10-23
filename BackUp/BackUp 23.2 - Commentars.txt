@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back in Action - Movie Review with Replies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a3d5e;
+            color: #fff;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .comment-section {
+            background: #243c55;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .comment-form, .reply-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input, textarea, button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        textarea {
+            resize: none;
+        }
+        button {
+            background: #dceefa;
+            color: #264a70;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #b0d1f4;
+        }
+        .comment, .reply {
+            background: #2e4a67;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+        }
+        .reply {
+            margin-left: 20px;
+        }
+        .reply-btn {
+            background: transparent;
+            border: none;
+            color: #dceefa;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="comment-section">
+        <h2>Leave a Comment</h2>
+        <form class="comment-form" id="commentForm">
+            <input type="text" id="username" placeholder="Your Name" required>
+            <textarea id="commentText" placeholder="Write your comment here..." required></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+        <div id="commentsList"></div>
+    </div>
+
+    <script>
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let username = document.getElementById("username").value;
+            let text = document.getElementById("commentText").value;
+            if (username && text) {
+                addComment(username, text);
+                this.reset();
+            }
+        });
+
+        function addComment(username, text, parentElement = null) {
+            let comment = document.createElement("div");
+            comment.classList.add(parentElement ? "reply" : "comment");
+            comment.innerHTML = `<strong>${username}:</strong> <p>${text}</p>`;
+
+            let replyButton = document.createElement("button");
+            replyButton.classList.add("reply-btn");
+            replyButton.textContent = "Reply";
+            replyButton.onclick = () => toggleReplyForm(comment);
+
+            comment.appendChild(replyButton);
+
+            let replyForm = document.createElement("form");
+            replyForm.classList.add("reply-form");
+            replyForm.style.display = "none";
+            replyForm.innerHTML = `
+                <input type="text" placeholder="Your Name" required>
+                <textarea placeholder="Write your reply here..." required></textarea>
+                <button type="submit">Post Reply</button>
+            `;
+            replyForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                let replyUsername = replyForm.querySelector("input").value;
+                let replyText = replyForm.querySelector("textarea").value;
+                if (replyUsername && replyText) {
+                    addComment(replyUsername, replyText, comment);
+                    this.reset();
+                    this.style.display = "none";
+                }
+            });
+
+            comment.appendChild(replyForm);
+
+            if (parentElement) {
+                parentElement.appendChild(comment);
+            } else {
+                document.getElementById("commentsList").appendChild(comment);
+            }
+        }
+
+        function toggleReplyForm(commentElement) {
+            let form = commentElement.querySelector(".reply-form");
+            form.style.display = form.style.display === "none" ? "flex" : "none";
+        }
+    </script>
+</body>
+</html>

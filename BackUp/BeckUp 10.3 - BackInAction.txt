@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back in Action - Movie Review</title>
+    <link rel="icon" type="image/png" href="/img/Logo/MiniLogo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #1a3d5e;
+            color: #fff;
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #264a70;
+            padding: 10px 20px;
+        }
+
+        .logo img {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            background: #fff;
+            color: #264a70;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #dceefa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #243c55;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #fff;
+            text-align: center;
+        }
+
+        .review-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .film {
+            text-align: center;
+            background: #2e4a67;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .film img {
+            width: 30%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .film p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #dceefa;
+        }
+
+        .review-text {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.1em;
+            max-width: 800px;
+        }
+
+        /* Comment Section */
+        .comment-section {
+            margin-top: 40px;
+            padding: 10px;
+            background: #2e4a67;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .comment-section h3 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            resize: none;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            box-sizing: border-box;
+        }
+
+        .comment-form textarea {
+            min-height: 150px;
+            white-space: pre-wrap;
+        }
+
+        .comment-form button {
+            background: #dceefa;
+            color: #264a70;
+            border: none;
+            padding: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .comment-form button:hover {
+            background: #b0d1f4;
+        }
+
+        .comments-list {
+            margin-top: 20px;
+        }
+
+        .comment {
+            background: #1f3a55;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            white-space: pre-wrap;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .comment strong {
+            color: #dceefa;
+        }
+
+        .site-footer {
+            text-align: center;
+            background: #264a70;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="/img/Logo/GolemoLogo.png" alt="HD Today">
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#tvshows">TV Shows</a>
+            <a href="#topimdb">Top IMDB</a>
+        </nav>
+        <button class="login-btn">Login</button>
+    </header>
+
+    <div class="container">
+        <h2>Back in Action - Movie Review</h2>
+        <div class="review-content">
+            <div class="film">
+                <img src="/img/Trending/Back in Action.jpg" alt="Back in Action">
+                <p>Back in Action</p>
+            </div>
+
+            <!-- Review Text -->
+            <div class="review-text">
+                <p><strong>Review:</strong> A thrilling action film with a gripping storyline, but lacking emotional depth. The performances were solid, and the action scenes were intense, making it an exciting watch for fans of the genre.</p>
+                <p><strong>Rating:</strong> 7.5/10</p>
+                <p><strong>Pros:</strong> Great action, engaging plot twists, solid performances.</p>
+                <p><strong>Cons:</strong> Lacks emotional depth, predictable in parts.</p>
+                <p><strong>Summary:</strong> If you're a fan of action-packed thrillers, "Back in Action" offers an exhilarating ride, even if it doesn't quite break new ground.</p>
+            </div>
+
+            <!-- Comment Section -->
+            <div class="comment-section">
+                <h3>Leave a Comment</h3>
+                <form class="comment-form" id="commentForm">
+                    <input type="text" id="username" placeholder="Your Name" required>
+                    <textarea id="commentText" placeholder="Write your comment here..." required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+
+                <div class="comments-list" id="commentsList">
+                    <!-- Comments will appear here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 MakFilm. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get user input
+            let username = document.getElementById("username").value;
+            let commentText = document.getElementById("commentText").value;
+
+            if (username.trim() === "" || commentText.trim() === "") return;
+
+            // Create new comment element
+            let commentElement = document.createElement("div");
+            commentElement.classList.add("comment");
+            commentElement.innerHTML = `<strong>${username}:</strong> <p>${commentText}</p>`;
+
+            // Add to comments list
+            document.getElementById("commentsList").appendChild(commentElement);
+
+            // Clear form
+            document.getElementById("commentForm").reset();
+        });
+    </script>
+</body>
+</html>

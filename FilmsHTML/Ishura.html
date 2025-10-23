@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishura - TV Show Review</title>
+    <link rel="icon" type="image/png" href="/img/Logo/MiniLogo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #1a3d5e;
+            color: #fff;
+        }
+
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #264a70;
+            padding: 10px 20px;
+        }
+
+        .logo img {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            background: #fff;
+            color: #264a70;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            background: #dceefa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #243c55;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #fff;
+            text-align: center;
+        }
+
+        .review-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .film {
+            text-align: center;
+            background: #2e4a67;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .film img {
+            width: 30%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .film p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #dceefa;
+        }
+
+        .review-text {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.1em;
+            max-width: 800px;
+        }
+
+        /* Comment Section */
+        .comment-section {
+            margin-top: 40px;
+            padding: 10px;
+            background: #2e4a67;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .comment-section h2 {
+            text-align: center;
+            color: #fff;
+        }
+
+        .comment-form,
+        .reply-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .comment-form input,
+        .comment-form textarea,
+        .reply-form input,
+        .reply-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            resize: none;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            box-sizing: border-box;
+        }
+
+        .comment-form textarea,
+        .reply-form textarea {
+            min-height: 100px;
+            white-space: pre-wrap;
+        }
+
+        .comment-form button,
+        .reply-form button {
+            background: #dceefa;
+            color: #264a70;
+            border: none;
+            padding: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .comment-form button:hover,
+        .reply-form button:hover {
+            background: #b0d1f4;
+        }
+
+        .comments-list {
+            margin-top: 20px;
+        }
+
+        .comment,
+        .reply {
+            background: #1f3a55;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+            white-space: pre-wrap;
+            width: 100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .comment strong,
+        .reply strong {
+            color: #dceefa;
+        }
+
+        .reply {
+            margin-left: 20px;
+            border-left: 2px solid #dceefa;
+            padding-left: 15px;
+        }
+
+        .reply::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            width: 10px;
+            height: 2px;
+            background: #dceefa;
+        }
+
+        .reply-btn {
+            background: #dceefa;
+            color: #264a70;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .reply-btn:hover {
+            background: #b0d1f4;
+        }
+
+        .reply-form {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .site-footer {
+            text-align: center;
+            background: #264a70;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <a href="/index.html">
+                <img src="/img/Logo/GolemoLogo.png" alt="HD Today">
+            </a>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/movies.html">Movies</a>
+            <a href="/tvshows.html">TV Shows</a>
+            <a href="https://www.imdb.com/chart/top/" target="_blank">Top IMDB &#8599;</a>
+        </nav>
+        <button class="login-btn" onclick="window.location.href='/login.html'">Login</button>
+    </header>
+
+    <div class="container">
+        <h2>Ishura - TV Show Review</h2>
+        <div class="review-content">
+            <div class="film">
+                <img src="/img/TvShows/Ishura.jpg" alt="Ishura">
+                <p>Ishura</p>
+            </div>
+
+            <!-- Review Text -->
+            <div class="review-text">
+                <p><strong>Review:</strong> A captivating and visually stunning fantasy series that takes you on an epic journey through a richly detailed world. "Ishura" is filled with complex characters, intricate storytelling, and breathtaking visuals. The show masterfully blends action, drama, and mythology, making it a must-watch for fantasy enthusiasts.</p>
+                <p><strong>Rating:</strong> 9/10</p>
+                <p><strong>Pros:</strong> Rich world-building, compelling characters, stunning visuals.</p>
+                <p><strong>Cons:</strong> Some episodes may feel slow-paced for viewers seeking constant action.</p>
+                <p><strong>Summary:</strong> "Ishura" is a masterfully crafted fantasy series that immerses you in a world of magic, intrigue, and adventure. A standout in the genre.</p>
+            </div>
+
+            <!-- New Comment Section -->
+            <div class="comment-section">
+                <h2>Leave a Comment</h2>
+                <form class="comment-form" id="commentForm">
+                    <input type="text" id="username" placeholder="Your Name" required>
+                    <textarea id="commentText" placeholder="Write your comment here..." required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+                <div id="commentsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 MakFilm. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("commentForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let username = document.getElementById("username").value;
+            let text = document.getElementById("commentText").value;
+            if (username && text) {
+                addComment(username, text);
+                this.reset();
+            }
+        });
+
+        function addComment(username, text, parentElement = null) {
+            let comment = document.createElement("div");
+            comment.classList.add(parentElement ? "reply" : "comment");
+            comment.innerHTML = `<strong>${username}:</strong> <p>${text}</p>`;
+
+            let replyButton = document.createElement("button");
+            replyButton.classList.add("reply-btn");
+            replyButton.textContent = "Reply";
+            replyButton.onclick = () => toggleReplyForm(comment);
+
+            comment.appendChild(replyButton);
+
+            let replyForm = document.createElement("form");
+            replyForm.classList.add("reply-form");
+            replyForm.style.display = "none";
+            replyForm.innerHTML = `
+                <input type="text" placeholder="Your Name" required>
+                <textarea placeholder="Write your reply here..." required></textarea>
+                <button type="submit">Post Reply</button>
+            `;
+            replyForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                let replyUsername = replyForm.querySelector("input").value;
+                let replyText = replyForm.querySelector("textarea").value;
+                if (replyUsername && replyText) {
+                    addComment(replyUsername, replyText, comment);
+                    this.reset();
+                    this.style.display = "none";
+                }
+            });
+
+            comment.appendChild(replyForm);
+
+            if (parentElement) {
+                parentElement.appendChild(comment);
+            } else {
+                document.getElementById("commentsList").appendChild(comment);
+            }
+        }
+
+        function toggleReplyForm(commentElement) {
+            let form = commentElement.querySelector(".reply-form");
+            form.style.display = form.style.display === "none" ? "flex" : "none";
+        }
+
+        document.querySelector("a[href='#topimdb']").addEventListener("click", (event) => {
+                event.preventDefault();
+                window.open("https://www.imdb.com/chart/top/", "_blank");
+            });
+    </script>
+</body>
+</html>

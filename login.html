@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakFilm - Login</title>
+    <link rel="icon" type="image/png" href="/img/Logo/MiniLogo.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #1a3d5e;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .site-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #264a70;
+            padding: 10px 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px;
+            cursor: pointer;
+        }
+        nav {
+            flex-grow: 1;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .login-btn {
+            background: #fff;
+            color: #264a70;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .login-btn:hover {
+            background: #dceefa;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #243c55;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            flex-grow: 1;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #dceefa;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #2e4a67;
+            border-radius: 5px;
+            background: #2e4a67;
+            color: #fff;
+            font-size: 1em;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #3a5775;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: #fff;
+            color: #264a70;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover {
+            background: #dceefa;
+        }
+        .login-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #dceefa;
+        }
+        .login-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+        .site-footer {
+            text-align: center;
+            background: #264a70;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="/img/Logo/GolemoLogo.png" alt="MakFilm">
+            </a>
+        </div>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/movies.html">Movies</a>
+            <a href="/tvshows.html">TV Shows</a>
+            <a href="https://www.imdb.com/chart/top/" target="_blank">Top IMDB &#8599;</a>
+        </nav>
+        <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+    </header>
+
+    <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username or Email</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <div class="login-footer">
+                <p>Don't have an account? <a href="/register.html">Register here</a></p>
+                <p><a href="/forgot-password.html">Forgot password?</a></p>
+            </div>
+        </form>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 MakFilm. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Add your login logic here
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            console.log('Login attempt:', { username, password });
+            // In a real application, you would send this to your server for authentication
+            
+            // For demo purposes, just show an alert
+            alert('Login functionality would be implemented here. Check console for details.');
+        });
+    </script>
+</body>
+</html>
